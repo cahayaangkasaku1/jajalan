@@ -1,6 +1,7 @@
-FROM python:3.9
+FROM gcr.io/deeplearning-platform-release/tf-cpu.2-6:m88
 WORKDIR /
-RUN apt update && apt -y install curl wget
+# Installs hypertune library
+RUN pip install cloudml-hypertune
 # Copies the trainer code to the docker image.
 COPY trainer /trainer
 # Sets up the entry point to invoke the trainer.
